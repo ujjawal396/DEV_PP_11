@@ -1,6 +1,7 @@
 let contents = process.argv.slice(2);
 // console.log(contents);
 
+
 const flags = [];
 const files = [];
 
