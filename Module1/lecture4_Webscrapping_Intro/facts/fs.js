@@ -1,4 +1,5 @@
 // In DEV_PP11 folder
+//initial steps
 // npm init -y
 // npm install cheerio
 
