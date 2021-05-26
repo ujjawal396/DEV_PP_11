@@ -13,7 +13,7 @@ request(matchLink , function(err , res , data){
 function processData(html){
     let myDocument = cheerio.load(html);
     let aTag = myDocument(".widget-items.cta-link a");
-    // console.log(aTag);
+     //console.log(aTag);
     // console.log(    aTag.attr("href")    );//attr is a function of cheerio
     let allMatchesLink = "https://www.espncricinfo.com" + aTag["0"].attribs.href;
     // console.log(allMatchesLink);
