@@ -1,26 +1,29 @@
-const cheerio=require("cheerio");
-const request=require("request");
+const cheerio = require("cheerio");
+const request = require("request");
+const fs = require("fs");
+const getTopicProjects = require("./getTopicProjects");
 
-request("https://github.com/topics",function(err,res,data){
-    processdata(data);
+
+// high order function + async function !!!
+request("https://github.com/topics" , function(err , res , data){
+    // console.log(data);
+    processData(data);
 })
 
-let githubTopics=[];
+// let githubTopics = [];
 
+function processData(html){
+    let myDocument = cheerio.load(html);
+    let allTopicsDiv = myDocument(".topic-box");
 
-function processdata(html){
-
-   let myDocument=cheerio.load(html);
-  let allTopicsDiv=myDocument(".topic-box");
-
-  //cosnole.log(allTopicsDiv)
-  for(let i=0;i<allTopicsDiv.length;i++){
-      let topicAtag=myDocument(allTopicsDiv[i]).find("a");
-     let topicLink = "https://www.github.com"+topicAtag.attr("href");
-     let topicName = topicAtag.find(".f3").text().split("\n")[1].trim();
-
-     githubTopics.push( {TopicName : topicName, Link : topicLink} );
-
+    // console.log(allTopicsDiv);
+    for(let i=0 ; i<allTopicsDiv.length ; i++){
+        let topicATag = myDocument(allTopicsDiv[i]).find("a");
+        let topicLink = "https://www.github.com"+topicATag.attr("href");
+        let topicName = topicATag.find(".f3").text().split("\n")[1].trim();
+        let topicFolderPath = `./Topics/${topicName}`;
+        fs.mkdirSync(topicFolderPath);
+        getTopicProjects(topicName , topicLink);
     }
-console.log(githubTopics);
+    // console.log(githubTopics);
 }
