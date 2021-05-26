@@ -22,3 +22,4 @@ function processData(html){
         getMatchDetails(matchLink);
     }   
 }
+module.exports=getAllMatches;

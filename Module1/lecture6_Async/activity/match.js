@@ -4,7 +4,7 @@ const fs = require("fs");
 // let matchLink = "https://www.espncricinfo.com/series/ipl-2020-21-1210595/delhi-capitals-vs-mumbai-indians-final-1237181/full-scorecard";
 
 let leaderboard = [] ;
-let countOfRequestSent=0 ;
+ let countOfRequestSent=0 ;
 
 
 function getMatchDetails(matchLink){
