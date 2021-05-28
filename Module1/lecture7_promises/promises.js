@@ -4,7 +4,8 @@ const fs = require("fs");
 // async function \
 // promisifed function
 
-let pendingPromise = fs.promises.readFile("./f1.txt" , "utf8");
+let pendingPromise = fs.promises.readFile("./f1.txt" , "utf8");//promises ka object milega
+
 
 console.log(pendingPromise);
 
