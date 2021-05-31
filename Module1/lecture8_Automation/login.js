@@ -6,7 +6,7 @@
 
 // let browserOpenPromise=puppeteer.launch({headless: false});
 // console.log(browserOpenPromise);
-// //promise<pending>
+//promise<pending>
 
 // browserOpenPromise.then(function(browser){
 //     console.log("browser is opened !");
@@ -58,6 +58,40 @@ browserOpenPromise.then(function(browser){
 .then(function(){
     return tab.click(".ui-btn.ui-btn-large.ui-btn-primary.auth-button.ui-btn-styled");
 })
+//wait and click
 .then(function(){
-    console.log("logged in");
+    return waitAndclick("#base-card-1-link");
 })
+.then(function(){
+    return waitAndclick('a[data-attr1="warmup"]');
+
+})
+.catch(function(err){
+
+})
+
+function waitAndclick(selector){
+    return new Promise(function(scb,fcb){
+        let waitpromise=tab.waitForSelector(selector, {visible : true});
+        waitpromise.then(function(){
+            return tab.click(selector);
+        })
+        .then(function(){
+            scb();
+        })
+        .catch(function(){
+            fcb();
+        });
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
