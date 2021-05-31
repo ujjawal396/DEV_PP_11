@@ -61,12 +61,3 @@ browserOpenPromise.then(function(browser){
 .then(function(){
     console.log("logged in");
 })
-
-
-
-
-
-
-
-
-
