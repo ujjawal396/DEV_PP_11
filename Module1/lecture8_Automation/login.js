@@ -65,10 +65,29 @@ browserOpenPromise.then(function(browser){
 .then(function(){
     return waitAndclick('a[data-attr1="warmup"]');
 
+}).then(function () {
+    // tab.$() // document.querySelector;
+    return tab.$$(".js-track-click.challenge-list-item"); // it will run document.querySelectorAll in the browser and gives you array of all the elements
+  })
+  .then(function (allQuesArray) {
+    // [<a /> , <a /> , <a /> , <a />];
+    let allPendingPromises = [];
+    for (let i = 0; i < allQuesArray.length; i++) {
+      let oneATag = allQuesArray[i];
+      let pendingPromise = tab.evaluate(function (element) { return element.getAttribute("href");}  , oneATag);
+      allPendingPromises.push(pendingPromise);
+    }
+    // [ Promise<Pending> , Promise<Pending> , Promise<Pending> , Promise<Pending> ];
+    let allPromisesCombined = Promise.all(allPendingPromises);
+    // Promise<Pending>
+    return allPromisesCombined;
+  })
+.then(function(allQuesLinks){
+  console.log(allQuesLinks);
 })
 .catch(function(err){
-
-})
+    console.log(err);
+});
 
 function waitAndclick(selector){
     return new Promise(function(scb,fcb){
@@ -84,14 +103,4 @@ function waitAndclick(selector){
         });
     });
 }
-
-
-
-
-
-
-
-
-
-
 
