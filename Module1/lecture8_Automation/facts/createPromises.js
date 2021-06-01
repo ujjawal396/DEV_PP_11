@@ -9,7 +9,7 @@ function myPromisifiedFun(filePath){
                 fcb("Data nhi aaya !!");
             }
             else{
-                scb("testing success callback !!!");
+                scb("Testing sucess callback");
             }
         })
 
