@@ -66,6 +66,11 @@ browserOpenPromise.then(function(browser){
     return waitAndclick('a[data-attr1="warmup"]');
 
 }).then(function () {
+    return tab.waitForSelector(".js-track-click.challenge-list-item", {
+      visible: true,
+    });
+  })
+  .then(function () {
     // tab.$() // document.querySelector;
     return tab.$$(".js-track-click.challenge-list-item"); // it will run document.querySelectorAll in the browser and gives you array of all the elements
   })
