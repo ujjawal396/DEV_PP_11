@@ -3,15 +3,24 @@ let todoInput = document.querySelector(".todo-input");
 
 
 
-todoInput.addEventListener("keypress" , addTodo);
-
-
-function addTodo(e){
+todoInput.addEventListener("keypress" , function(e){
     if(e.key == "Enter"){
-        let todoInputValue = todoInput.value;
-        console.log(todoInputValue);
-        todoInput.value = "";
+        addTodo();
     }
+});
+addTodoButton.addEventListener( "click" , function(){
+    addTodo();
+});
+
+
+// attach click event on addTodoButton
+function addTodo(){
+    let todoInputValue = todoInput.value;
+    if(todoInputValue){
+            console.log(todoInputValue);
+            // it will empty the todoInput
+            todoInput.value = "";
+        }
 }
 
 
