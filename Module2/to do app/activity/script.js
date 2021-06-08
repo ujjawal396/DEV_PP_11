@@ -62,10 +62,7 @@ TodoInput.addEventListener("keypress", function (e) {
     // <div class="todo-item">
     //        <p class="todo-input">learn css</p>
     //        <button class="delete-todo">delete</button>
-    //    </div>
-
-
-
+    //    </div
       let todoitemDiv=document.createElement("div");
       todoitemDiv.classList.add("todo-item");
 
@@ -78,13 +75,19 @@ TodoInput.addEventListener("keypress", function (e) {
       buttonTag.classList.add("delete-todo");
       buttonTag.textContent="Delete";
        // <button class="delete-todo">Delete</button>
+       buttonTag.addEventListener("click",deleteToDo);
 
       todoitemDiv.append(pTag);
       todoitemDiv.append(buttonTag);
 
       todosList.append(todoitemDiv);
   }
+  
+ function deleteToDo(e){
+     e.target.parentNode.remove();
+ }
 
+  
 
 
 
