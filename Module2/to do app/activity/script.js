@@ -2,8 +2,7 @@
 
 // console.log(document);
 
-let addToDoButton=document.querySelector(".add-todo");
-let TodoInput=document.querySelector(".todo-input");
+
 
 
 //keyboard input press
@@ -18,6 +17,24 @@ let TodoInput=document.querySelector(".todo-input");
 //     }
 // }
 
+
+
+// attach click event on addToDoButton
+// addToDoButton.addEventListener("click", addToDo);
+
+// function addToDo(e){
+// let todoinputvalue=TodoInput.value;
+// //falsy value->="",0,false,undefined
+//   if(todoinputvalue){
+//       console.log(todoinputvalue);
+//       //it will empty the todoinput value
+//       TodoInput.value="";
+//   }
+// }
+let addToDoButton=document.querySelector(".add-todo");
+let TodoInput=document.querySelector(".todo-input");
+
+let todosList = document.querySelector(".todos-list-container")
 
 TodoInput.addEventListener("keypress", function (e) {
     if (e.key == "Enter") {
@@ -34,22 +51,44 @@ TodoInput.addEventListener("keypress", function (e) {
   function addTodo() {
     let todoInputValue = TodoInput.value;
     if (todoInputValue) {
-      console.log(todoInputValue)
+        appendTodo(todoInputValue);
       // it will empty the todoInput
       TodoInput.value = "";
     }
   }
+  
+  function appendTodo(todo){
+     
+    // <div class="todo-item">
+    //        <p class="todo-input">learn css</p>
+    //        <button class="delete-todo">delete</button>
+    //    </div>
 
 
-// attach click event on addToDoButton
-// addToDoButton.addEventListener("click", addToDo);
 
-// function addToDo(e){
-// let todoinputvalue=TodoInput.value;
-// //falsy value->="",0,false,undefined
-//   if(todoinputvalue){
-//       console.log(todoinputvalue);
-//       //it will empty the todoinput value
-//       TodoInput.value="";
-//   }
-// }
+      let todoitemDiv=document.createElement("div");
+      todoitemDiv.classList.add("todo-item");
+
+      let pTag=document.createElement("p");
+      pTag.classList.add("todo-input");
+      pTag.textContent=todo;
+      // <p class="todo-input">Learn Css</p>
+
+      let buttonTag=document.createElement("button");
+      buttonTag.classList.add("delete-todo");
+      buttonTag.textContent="Delete";
+       // <button class="delete-todo">Delete</button>
+
+      todoitemDiv.append(pTag);
+      todoitemDiv.append(buttonTag);
+
+      todosList.append(todoitemDiv);
+  }
+
+
+
+
+
+
+
+
