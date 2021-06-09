@@ -60,14 +60,14 @@ TodoInput.addEventListener("keypress", function (e) {
   function appendTodo(todo){
      
     // <div class="todo-item">
-    //        <p class="todo-input">learn css</p>
+    //        <p class="todo">learn css</p>
     //        <button class="delete-todo">delete</button>
     //    </div
       let todoitemDiv=document.createElement("div");
       todoitemDiv.classList.add("todo-item");
 
       let pTag=document.createElement("p");
-      pTag.classList.add("todo-input");
+      pTag.classList.add("todo");
       pTag.textContent=todo;
       // <p class="todo-input">Learn Css</p>
 
@@ -86,8 +86,4 @@ TodoInput.addEventListener("keypress", function (e) {
  function deleteToDo(e){
      e.target.parentNode.remove();
  }
-
-  
-
-
 
