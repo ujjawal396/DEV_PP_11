@@ -7,6 +7,7 @@ for(let i=0;i<allFilters.length;i++){
 }
 
 function selectFilter(e){
+    console.log(e);
     let filterSelected=e.target.classList[1];
 
     if(ticketsContainer.classList.length>1){
