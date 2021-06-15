@@ -35,7 +35,7 @@
 }
 
 .red {
-    background-color: #9c6666;
+    background-color: #eb2f06;
 }
 
 .blue {
@@ -84,4 +84,38 @@
 
 .ticket-container {
     height: calc( 100vh - 80px );
+}
+
+.ticket-modal {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    height: 300px;
+    width: 400px;
+    border: 1px solid lightgray;
+    left: calc( 50vw - 200px );
+}
+
+.ticket-text {
+    width: 70%;
+    background-color: beige;
+    outline: none;
+    overflow: auto;
+    padding: 15px;
+    font-size: 25px;
+}
+
+.ticket-filters {
+    width: 30%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ticket-filter {
+    height: 10%;
+    width: 61%;
 }
