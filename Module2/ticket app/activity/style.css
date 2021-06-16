@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    font-family: 'Viaoda Libre', cursive;
 }
 
 .header {
@@ -104,6 +105,8 @@
     overflow: auto;
     padding: 15px;
     font-size: 25px;
+    /* font-style: oblique; */
+    /* font-family: 'Viaoda Libre', cursive; */
 }
 
 .ticket-filters {
@@ -115,7 +118,17 @@
     align-items: center;
 }
 
+.ticket-filter:hover {
+    opacity: 1 ;
+}
+
 .ticket-filter {
     height: 10%;
     width: 61%;
+    opacity: 0.5;
+}
+
+.selected-filter {
+    border: 3px solid white;
+    opacity: 1;
 }
