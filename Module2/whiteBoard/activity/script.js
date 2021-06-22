@@ -12,4 +12,4 @@ window.addEventListener("resize",function(){
 
 // a context object which provides fun for 2d drawing
 
-let ctx=canvas.getContent("2d");
+let ctx=canvas.getContext("2d");
