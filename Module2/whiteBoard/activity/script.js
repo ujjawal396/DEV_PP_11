@@ -27,7 +27,7 @@ canvas.addEventListener("mousedown",function(e){
     ctx.beginPath();
     ctx.moveTo(x,y);
 
-    let pointObject={
+    let pointObject = {
         x:x ,
         y:y ,
         type :"md"
@@ -41,13 +41,18 @@ canvas.addEventListener("mousemove",function(e){
     ctx.lineTo(x,y);
     ctx.stroke();
 
-    }
-    let pointObject={
+
+
+    let pointObject = {
         x:x ,
         y:y ,
         type :"mm"
+       }
+       line.push(pointObject);
+
     }
-    line.push(pointObject);
+    
+    
 })
 canvas.addEventListener("mouseup",function(e){
     isPenDown=false;

@@ -1,4 +1,4 @@
-let undo=document.querySelector("undo");
+let undo=document.querySelector("#undo");
 
 undo.addEventListener("click",undoLine);
 
@@ -7,7 +7,7 @@ function undoLine(){
     linesDb.pop();
 
     //clear canvas
-    ctx.clearRect(0,0,canvas.Width,canvas.height);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
     drawLinesFromDB();
 
