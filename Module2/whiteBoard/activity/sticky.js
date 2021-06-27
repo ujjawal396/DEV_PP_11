@@ -64,16 +64,6 @@ let stickyHold = false;
 
 
 
-
-
-
-
-
-
-
-
-
-
 document.body.append(stickyDiv);
 
 }
