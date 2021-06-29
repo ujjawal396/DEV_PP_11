@@ -55,7 +55,7 @@ let mediaRecorder;
     });
     
    capturePhoto.addEventListener("click",function(){
-       //canva
+       //canvas
        let canvas=document.createElement("canvas");
        canvas.width=640;
        canvas.height=480;
