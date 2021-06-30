@@ -5,6 +5,9 @@ let recordButton=document.querySelector(".inner-record");
 let recordingState=false;
 let mediaRecorder;
 
+let filters = document.querySelectorAll(".filter");
+let filterSelected = "none";
+
 (async function(){
     let constraint={video:true};
     let mediaStream= await navigator.mediaDevices.getUserMedia(constraint);
@@ -84,3 +87,40 @@ let mediaRecorder;
    });
 
 })();
+
+for (let i = 0; i < filters.length; i++) {
+    filters[i].addEventListener("click", function (e) {
+      let currentFilterSelected = e.target.style.backgroundColor;
+      if (currentFilterSelected == "") {
+        if (document.querySelector(".filter-div")) {
+          document.querySelector(".filter-div").remove();
+          filterSelected = "none";
+          return;
+        }
+      }
+  
+      console.log(currentFilterSelected);
+      if (filterSelected == currentFilterSelected) {
+        return;
+      }
+  
+      let filterDiv = document.createElement("div");
+      filterDiv.classList.add("filter-div");
+      filterDiv.style.backgroundColor = currentFilterSelected;
+  
+      if (filterSelected == "none") {
+        document.body.append(filterDiv);
+      } else {
+        document.querySelector(".filter-div").remove();
+        document.body.append(filterDiv);
+      }
+      filterSelected = currentFilterSelected;
+    });
+  }
+
+
+
+
+
+
+
