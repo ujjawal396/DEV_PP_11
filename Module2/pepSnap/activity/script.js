@@ -1,7 +1,7 @@
 let videoElement=document.querySelector("video");
-let capturePhoto = document.querySelector("#capture");
+let capturePhoto = document.querySelector(".inner-capture");
 
-let recordButton=document.querySelector("#record");
+let recordButton=document.querySelector(".inner-record");
 let recordingState=false;
 let mediaRecorder;
 
@@ -43,18 +43,28 @@ let mediaRecorder;
             //already recording is going on
             //stop the recording
             mediaRecorder.stop();
-            recordButton.innerHTML="Record Video";
+            
             recordingState=false;
+            recordButton.classList.remove("animate-record");
+
 
         }else{
             //start the recording
             mediaRecorder.start();
-            recordButton.innerHTML="Recording..";
+            
             recordingState=true;
+            recordButton.classList.add("animate-record");
         }
     });
     
-   capturePhoto.addEventListener("click",function(){
+    capturePhoto.addEventListener("click",function(){
+
+      capturePhoto.classList.add("animate-capture");
+
+
+       setTimeout(function(){
+        capturePhoto.classList.remove("animate-capture");
+        },1000);
        //canvas
        let canvas=document.createElement("canvas");
        canvas.width=640;
@@ -71,6 +81,6 @@ let mediaRecorder;
        aTag.href=canvas.toDataURL("image/jpg");
        aTag.click();
 
-   })
+   });
 
 })();
