@@ -99,6 +99,33 @@ video {
     width: 100vw;
 }
 
+.zoom {
+    flex-direction: column;
+    /* border: 1px solid white; */
+}
+
+.zoom div {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: black; */
+    width: 100%;
+}
+
+.fas {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.gallery-btn {
+    background: black;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid white;
+}
 
 @keyframes scaleInScaleOut {
     0% {
