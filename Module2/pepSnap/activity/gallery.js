@@ -90,7 +90,7 @@ function deleteMedia(mediaObject , mediaDiv) {
   let mid = mediaObject.mid;
   let txnObject = db.transaction("Media", "readwrite");
   let mediaTable = txnObject.objectStore("Media");
-  mediaTable.delete(mid);
+  mediaTable.delete(mid);//database se remove
 
   mediaDiv.remove(); //UI se remove
 }
