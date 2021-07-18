@@ -1,5 +1,6 @@
 let fs = require("fs");
 
+
 function getFilesData(files) {
   let filesData = "";
   for (let i = 0; i < files.length; i++) {
